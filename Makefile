@@ -6,12 +6,6 @@ build: docker_build output
 # Build and push Docker image
 release: docker_build docker_push output
 
-## Removed
-# Image and binary can be overidden with env vars.
-# DOCKER_IMAGE ?=
-# BINARY ?=
-# CODE_VERSION ?=
-
 # Get the latest commit.
 GIT_COMMIT = $(strip $(shell git rev-parse --short HEAD))
 
