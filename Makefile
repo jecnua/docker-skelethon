@@ -22,7 +22,7 @@ endif
 endif
 
 ifeq ("$(wildcard VERSION)","")
-$(error echo File VERSION does not exist. Please create.)
+$(error echo File VERSION does not exist. Please create one. echo '0.0.1' > VERSION)
 endif
 
 # Get the latest commit.
