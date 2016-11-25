@@ -6,16 +6,25 @@ build: docker_build output
 # Build and push Docker image
 release: docker_build docker_push output
 
+gen-env:
+	./run.sh
+
+aws-login:
+	./login.sh
+	./run.sh
+
+include env.sh
+
 # Get the latest commit.
 GIT_COMMIT = $(strip $(shell git rev-parse --short HEAD))
 
 # Get the version number from the code
-# CODE_VERSION = $(strip $(shell cat VERSION))
+CODE_VERSION = $(strip $(shell cat VERSION))
 
 # Find out if the working directory is clean
 GIT_NOT_CLEAN_CHECK = $(shell git status --porcelain)
 ifneq (x$(GIT_NOT_CLEAN_CHECK), x)
-DOCKER_TAG_SUFFIX = "-dirty"
+DOCKER_TAG_SUFFIX=-dirty
 endif
 
 # If we're releasing to Docker Hub, and we're going to mark it with the latest tag, it should exactly match a version release
@@ -33,9 +42,11 @@ endif
 # $(error echo You are trying to push a build based on commit $(GIT_COMMIT) but the tagged release version is $(VERSION_COMMIT))
 # endif
 
+ifeq (x$(CHECK_CLEAN), x)
 # Don't push to Docker Hub if this isn't a clean repo
 ifneq (x$(GIT_NOT_CLEAN_CHECK), x)
 $(error echo You are trying to release a build based on a dirty repo)
+endif
 endif
 
 else
@@ -56,9 +67,9 @@ docker_push:
 	# Tag image as latest
 	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_IMAGE):latest
 
-	# Push to DockerHub
-	docker push $(DOCKER_IMAGE):$(DOCKER_TAG)
-	docker push $(DOCKER_IMAGE):latest
+	# Push to AWS
+	docker tag $(DOCKER_IMAGE):latest $(URL_REPO):latest
+	docker push $(URL_REPO):latest
 
 output:
 	@echo Docker Image: $(DOCKER_IMAGE):$(DOCKER_TAG)
