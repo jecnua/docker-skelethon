@@ -1,9 +1,15 @@
 #!/bin/bash
+# NAME_REPO will be deduced by the git repo name.
+# You can override this behaviour by setting the variable to something.
 
-#TODO: Change the repo name
-NAME_REPO='xxx/xxx'
-
-##
+if [ -z ${NAME_REPO+x} ];
+then
+  echo "NAME_REPO is unset";
+  NAME_REPO=$(basename `git rev-parse --show-toplevel`)
+  echo "NAME_REPO is now set to '$NAME_REPO'";
+else
+  echo "NAME_REPO is set to '$NAME_REPO'";
+fi
 
 ALL=`aws ecr describe-repositories`
 TEST=`echo $ALL | grep $NAME_REPO | wc -l`
