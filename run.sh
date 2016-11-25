@@ -5,7 +5,7 @@
 if [ -z ${NAME_REPO+x} ];
 then
   echo "NAME_REPO is unset";
-  NAME_REPO=$(basename `git rev-parse --show-toplevel`)
+  NAME_REPO=$(basename `git rev-parse --show-toplevel` | sed 's/-/\//g')
   echo "NAME_REPO is now set to '$NAME_REPO'";
 else
   echo "NAME_REPO is set to '$NAME_REPO'";
@@ -30,3 +30,5 @@ cat << EOF > env.sh
 export DOCKER_IMAGE=$NAME_REPO
 export URL_REPO=$URL
 EOF
+
+echo "Env file generated in env.sh"

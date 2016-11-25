@@ -13,7 +13,17 @@ aws-login:
 	./login.sh
 	./run.sh
 
+ifneq ($(MAKECMDGOALS),gen-env)
+ifneq ("$(wildcard env.sh)","")
 include env.sh
+else
+$(error echo File env.sh does not exist. Please generate with make gen-env)
+endif
+endif
+
+ifeq ("$(wildcard VERSION)","")
+$(error echo File VERSION does not exist. Please create.)
+endif
 
 # Get the latest commit.
 GIT_COMMIT = $(strip $(shell git rev-parse --short HEAD))
