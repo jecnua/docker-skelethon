@@ -16,7 +16,7 @@ TEST=`echo $ALL | grep $NAME_REPO | wc -l`
 echo "Checking $NAME_REPO"
 if [[ $TEST -eq 0 ]]
 then
-  echo 'Repository NOT found on aws'
+  echo 'Repository NOT found on aws. Creating:'
   aws ecr create-repository --repository-name $NAME_REPO
 else
   echo 'Repository found on aws'

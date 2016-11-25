@@ -13,16 +13,16 @@ aws-login:
 	./login.sh
 	./run.sh
 
+ifeq ("$(wildcard VERSION)","")
+$(error echo File VERSION does not exist. Please create one. echo '0.0.1' > VERSION)
+endif
+
 ifneq ($(MAKECMDGOALS),gen-env)
 ifneq ("$(wildcard env.sh)","")
 include env.sh
 else
 $(error echo File env.sh does not exist. Please generate with make gen-env)
 endif
-endif
-
-ifeq ("$(wildcard VERSION)","")
-$(error echo File VERSION does not exist. Please create one. echo '0.0.1' > VERSION)
 endif
 
 # Get the latest commit.
@@ -72,6 +72,9 @@ docker_build:
   --build-arg VCS_URL=`git config --get remote.origin.url` \
   --build-arg VCS_REF=$(GIT_COMMIT) \
 	-t $(DOCKER_IMAGE):$(DOCKER_TAG) .
+
+	# Very useful :)
+	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_IMAGE):dev-latest
 
 docker_push:
 	# Tag image as latest
