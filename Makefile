@@ -78,8 +78,10 @@ docker_push:
 	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_IMAGE):latest
 
 	# Push to AWS
-	docker tag $(DOCKER_IMAGE):latest $(URL_REPO):latest
+	docker tag $(DOCKER_IMAGE):latest $(URL_REPO):$(DOCKER_TAG)
+	docker tag $(URL_REPO):$(DOCKER_TAG) $(URL_REPO):latest
 	docker push $(URL_REPO):latest
+	docker push $(URL_REPO):$(DOCKER_TAG)
 
 output:
 	@echo Docker Image: $(DOCKER_IMAGE):$(DOCKER_TAG)
