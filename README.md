@@ -15,3 +15,10 @@ If you didn't commit you will see something like this:
 To inspect:
 
     $ docker inspect test/test:0.1-74ae1d8-dirty
+
+## Install
+
+    a_list=(.gitignore Dockerfile Makefile login.sh run.sh)
+    for i in ${a_list[@]}; do \
+    wget https://raw.githubusercontent.com/jecnua/docker-skelethon/master/$i
+    done
