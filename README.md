@@ -4,7 +4,8 @@
 
 To build locally:
 
-    make
+    $ source env.sh
+    $ make
 
 If you didn't commit you will see something like this:
 
@@ -13,4 +14,4 @@ If you didn't commit you will see something like this:
 
 To inspect:
 
-    docker inspect test/test:0.1-74ae1d8-dirty
+    $ docker inspect test/test:0.1-74ae1d8-dirty
