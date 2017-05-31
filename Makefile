@@ -9,10 +9,6 @@ release: docker_build docker_push output
 gen-env:
 	./run.sh
 
-aws-login:
-	./login.sh
-	./run.sh
-
 ifeq ("$(wildcard VERSION)","")
 $(error echo File VERSION does not exist. Please create one. echo '0.0.1' > VERSION)
 endif
