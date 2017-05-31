@@ -3,7 +3,7 @@
 ## Steps
 
 - 1) Change DOCKER_IMAGE in env.sh
-- 2) Change FROM Image
+- 2) Change FROM Image and MAINTAINER in dockerfile
 - 3) make
 - 4) try to run your image
 
