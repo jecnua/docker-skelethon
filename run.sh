@@ -17,6 +17,9 @@ else
   echo "NAME_REPO is set to '$NAME_REPO'";
 fi
 
+# By default use dockerhub
+URL=$NAME_REPO
+
 ## Uncomment this if you want to create a new repo on ECR
 # ALL=`aws ecr describe-repositories`
 # TEST=`echo $ALL | grep $NAME_REPO | wc -l`
@@ -35,7 +38,7 @@ fi
 cat << EOF > env.sh
 #!/bin/bash
 export DOCKER_IMAGE=$NAME_REPO
-# export URL_REPO=$URL
+export URL_REPO=$URL
 EOF
 
 echo "Env file generated in env.sh"

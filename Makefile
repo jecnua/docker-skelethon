@@ -76,7 +76,7 @@ docker_push:
 	# Tag image as latest
 	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_IMAGE):latest
 
-	# Push to AWS
+	# Push
 	docker tag $(DOCKER_IMAGE):latest $(URL_REPO):$(DOCKER_TAG)
 	docker tag $(URL_REPO):$(DOCKER_TAG) $(URL_REPO):latest
 	docker push $(URL_REPO):latest
