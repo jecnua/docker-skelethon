@@ -2,10 +2,14 @@
 
 ## Steps
 
-- 1) Change DOCKER_IMAGE in env.sh
-- 2) Change FROM Image and MAINTAINER in dockerfile
-- 3) make
-- 4) try to run your image
+In order:
+
+- Change DOCKER_IMAGE in env.sh
+- Change FROM Image and MAINTAINER in dockerfile
+- Source env.sh
+- Try to run "make" and check the output
+- [optional] Try to run your image
+- Delete all on this README
 
 ## Build
 
