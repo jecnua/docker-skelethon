@@ -4,7 +4,11 @@
 
 In order:
 
-- Change DOCKER_IMAGE in env.sh
+- Remove the .git
+- Run 'git init'
+- export NAME_REPO="yourrepo/name"
+- run run.sh
+- [optional] Change DOCKER_IMAGE in env.sh if needed
 - Change FROM Image and MAINTAINER in dockerfile
 - Source env.sh
 - Try to run "make" and check the output
