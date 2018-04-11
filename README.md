@@ -1,5 +1,7 @@
 # Docker skelethon
 
+![status](https://img.shields.io/badge/project_status-active-green.svg)
+
 ## Steps
 
 In order:
