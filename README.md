@@ -6,6 +6,7 @@
 
 In order:
 
+- git clone git@github.com:jecnua/docker-skelethon.git <new-directory>
 - Remove the .git
 - Run 'git init'
 - export NAME_REPO="yourrepo/name"
