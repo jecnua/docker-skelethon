@@ -7,6 +7,7 @@ MAINTAINER jecnua "fabrizio.sabatini.it@gmail.com"
 # ENV
 
 # COPY
+COPY Dockerfile /Dockerfile
 
 # Metadata params
 ARG BUILD_DATE
@@ -18,9 +19,8 @@ ARG VCS_REF
 LABEL org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.name="" \
   org.label-schema.description="" \
-  org.label-schema.url="" \
   org.label-schema.vcs-url=$VCS_URL \
   org.label-schema.vcs-ref=$VCS_REF \
   org.label-schema.version=$VERSION \
   com.jecnua.docker.dockerfile="/Dockerfile" \
-  com.jecnua.license=""
+  com.jecnua.license="MIT"
