@@ -4,6 +4,8 @@
 
 - [http://label-schema.org/rc1/](http://label-schema.org/rc1/)
 
+UPDATE: MAINTAINER is now deprecated https://docs.docker.com/engine/reference/builder/#maintainer-deprecated
+
 ## Steps
 
 In order:
