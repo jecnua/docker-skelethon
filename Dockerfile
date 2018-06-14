@@ -1,7 +1,5 @@
 FROM scratch
 
-MAINTAINER jecnua "fabrizio.sabatini.it@gmail.com"
-
 # RUN
 
 # ENV
@@ -25,4 +23,5 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.url="https://github.com/jecnua/docker-skelethon" \
   org.label-schema.schema-version="1.0" \
   com.jecnua.docker.dockerfile="/Dockerfile" \
-  com.jecnua.license="MIT"
+  com.jecnua.license="MIT" \
+  maintainer="fabrizio.sabatini.it@gmail.com"
