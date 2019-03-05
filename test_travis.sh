@@ -10,4 +10,4 @@ done <   <(find . -iname '*.sh' -not -path '*/\.*' -type f -print0)
 source ./env.sh
 export GOSS_WAIT_OPTS="-r 90s -s 1s > /dev/null"
 dgoss run \
-  "$DOCKER_IMAGE":dev-latest
+  "$DOCKER_IMAGE":dev-latest sleep 300

@@ -1,8 +1,8 @@
-# command:
-#   curl localhost:80:
-#     title: Checking main entrypoint
-#     exit-status: 0
-#     stdout:
-#     - 'example'
-#     stderr: []
-#     timeout: 1000
+command:
+  ls -la:
+    title: Simple tests
+    exit-status: 0
+    stdout:
+    - '/root'
+    stderr: []
+    timeout: 1000

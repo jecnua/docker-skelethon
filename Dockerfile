@@ -1,4 +1,4 @@
-FROM scratch
+FROM gcr.io/google-containers/ubuntu-slim:0.14
 
 # RUN
 

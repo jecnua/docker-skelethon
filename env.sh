@@ -1,3 +1,3 @@
 #!/bin/bash
-export DOCKER_IMAGE=docker/skelethon
-export URL_REPO=docker/skelethon
+export DOCKER_IMAGE=docker/skeleton
+export URL_REPO=docker/skeleton
