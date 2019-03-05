@@ -13,6 +13,8 @@ ARG VERSION
 ARG VCS_URL
 ARG VCS_REF
 
+LABEL maintainer="jecnua <fabrizio.sabatini.it@gmail.com>"
+
 # Metadata
 LABEL org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.name="" \
@@ -23,5 +25,4 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.url="https://github.com/jecnua/docker-skelethon" \
   org.label-schema.schema-version="1.0" \
   com.jecnua.docker.dockerfile="/Dockerfile" \
-  com.jecnua.license="MIT" \
-  maintainer="fabrizio.sabatini.it@gmail.com"
+  com.jecnua.license="MIT"
